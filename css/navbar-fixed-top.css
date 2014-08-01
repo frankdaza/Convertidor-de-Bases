@@ -1,0 +1,15 @@
+body { 
+  padding-top: 70px;
+}
+
+footer {
+	margin-top: 10em;
+	padding: 2em;
+	background-color: #333;
+	color: white;
+}
+
+footer img {
+	margin: 0 auto;
+	width: 180px;
+}
