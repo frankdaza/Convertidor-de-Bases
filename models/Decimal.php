@@ -23,7 +23,7 @@ class Decimal
 	* Convierte un número decimal a binario.
 	* @return float un número binario.
 	*/
-	public function decimal_binario() {
+	public function decimal_binary() {
 		if ( gettype($this->number) == 'integer' ) {
 			return decbin($this->number);
 		}
@@ -38,7 +38,7 @@ class Decimal
 			// Parte fraccional
 			$fractional = $array[1];
 
-			
+
 
 			return $integer;
 
@@ -48,6 +48,6 @@ class Decimal
 }
 
 $numero = new Decimal(3.9023);
-echo $numero->decimal_binario()
+echo $numero->decimal_binary()
 
 ?>
