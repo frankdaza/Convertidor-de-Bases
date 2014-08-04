@@ -101,8 +101,43 @@ class Validator
 		}
 	}
 
+	/**
+	* Valida si un número es hexadecimal.
+	* @return bool true si es hexadecimal, false de lo contrario.
+	*/
+	public function validator_hexadecimal() {
+		// Divido el número en dos partes, la entera y la fraccionarioa
+		// y los ingreso en un array.
+		$array = explode(".", "".$this->number);
+
+		if (count($array) > 2) {			
+			return false;
+		}
+		else {		
+			// Guardo las coincidencias de 0123456789ABCDEF de la parte entera
+			$integer = strspn($array[0], "0123456789ABCDEF");
+
+			if (count($array) == 2) {
+				// Guardo las coincidencias de 0123456789ABCDEF de la parte fraccionaria
+				$fractional = strspn($array[1], "0123456789ABCDEF");
+				if ($integer == strlen($array[0]) && $fractional == strlen($array[1])) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			else {
+				if ($integer == strlen($array[0])) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+		}
+	}
 
 }
-
 
 ?>
