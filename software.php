@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -14,6 +20,13 @@
 
     <!-- Custom styles for this template -->
     <link href="css/navbar-fixed-top.css" rel="stylesheet">
+
+    <script>
+      function validator_hexadecimal() {
+        var x = document.getElementById("hexadecimal");
+        x.value = x.value.toUpperCase();
+      }     
+    </script>
    
   </head>
 
@@ -59,30 +72,90 @@
         <div class="form-group">
           <label class="col-sm-4 control-label" for="decimal">DECIMAL</label>
           <div class="col-sm-5">
-            <input name="decimal" type="text" class="form-control" id="decimal" maxlength="20">
+            <input name="decimal" type="text" class="form-control" id="decimal" maxlength="20" value=
+            <?php 
+              if (isset($_SESSION["decimal"])) {                
+                echo $_SESSION["decimal"];
+                unset($_SESSION["decimal"]);
+              }            
+            ?>
+            >            
+            <p class="text-danger text-center" id="errorDecimal">
+              <?php 
+                if (isset($_SESSION["errorDecimal"])) {
+                  echo "No es un número decimal";
+                  unset($_SESSION["errorDecimal"]);
+                }
+              ?>
+            </p>
           </div>
         </div>
         <div class="form-group">
           <label for="binary" class="col-sm-4 control-label">BINARIO</label>
           <div class="col-sm-5">
-            <input name="binary" type="text" class="form-control" id="binary" maxlength="20">
+            <input name="binary" type="text" class="form-control" id="binary" maxlength="20" value=
+            <?php 
+              if (isset($_SESSION["binary"])) {                
+                echo $_SESSION["binary"];
+                unset($_SESSION["binary"]);          
+              }
+            ?>
+            >
+            <p class="text-danger" id="errorBinary">
+              <?php 
+                if (isset($_SESSION["errorBinary"])) {
+                  echo "No es un número binario";
+                  unset($_SESSION["errorBinary"]);
+                }
+              ?>
+            </p>
           </div>
         </div>
         <div class="form-group">
           <label for="octal" class="col-sm-4 control-label">OCTAL</label>
           <div class="col-sm-5">
-            <input name="octal" type="text" class="form-control" id="octal" maxlength="20">
+            <input name="octal" type="text" class="form-control" id="octal" maxlength="20" value=
+            <?php 
+              if (isset($_SESSION["octal"])) {
+                echo $_SESSION["octal"];
+                unset($_SESSION["octal"]);
+              }
+            ?>
+            >
+            <p class="text-danger" id="errorOctal">
+              <?php 
+                if (isset($_SESSION["errorOctal"])) {
+                  echo "No es un número octal";
+                  unset($_SESSION["errorOctal"]);
+                }
+              ?>
+            </p>
           </div>
         </div>
         <div class="form-group">
           <label for="hexadecimal" class="col-sm-4 control-label">HEXADECIMAL</label>
           <div class="col-sm-5">
-            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" maxlength="20">
+            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" maxlength="20"  onkeyup="validator_hexadecimal()" value=
+            <?php 
+              if (isset($_SESSION["hexadecimal"])) {
+                echo $_SESSION["hexadecimal"];
+                unset($_SESSION["hexadecimal"]);
+              }
+            ?>
+            >
+            <p class="text-danger" id="errorHexadecimal">
+              <?php 
+                if (isset($_SESSION["errorHexadecimal"])) {
+                  echo "No es un número hexadecimal";
+                  unset($_SESSION["errorHexadecimal"]);
+                }
+              ?>
+            </p>
           </div>
         </div>
         <div class="form-group">
         <div class="col-sm-offset-5 col-sm-10">
-          <button type="reset" class="btn btn-danger">Borrar</button>
+          <a href="clear.php" class="btn btn-danger">Borrar</a>
           <button type="submit" class="btn btn-primary">Evaluar</button>
         </div>
       </div>
@@ -107,5 +180,6 @@
     <script src="js/collapse.js"></script>
     <script src="js/transition.js"></script>
     <script src="js/dropdown.js"></script>
+    <script src="js/validator.js"></script>
   </body>
 </html>
