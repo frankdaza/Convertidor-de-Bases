@@ -33,9 +33,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="equipo.html">Equipo</a></li>            
-            <li><a href="software.php">Software</a></li>
+            <li class="active"><a href="software.php">Software</a></li>
             <li><a href="https://github.com/frankdaza2/Convertidor-de-Bases" target="_blank">Github</a></li>
             <li><a href="#contact">Contacto</a></li>            
           </ul>
@@ -52,23 +52,42 @@
       </div>
     </div>
 
-    <section class="container">
+    <section class="container">      
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <section class="jumbotron">
-        <h1>Conversor de Bases Numéricas</h1>
-        <p class="text-justify">
-          El siguiente software ha sido desarrollado por un grupo de estudiantes
-          de ingeniería multimedia e ingeniería de sistemas de la universidad de San Buenaventura Cali.
-          A continuación puedes descargar un archivo en pdf donde se explica el proceso de conversión
-          entre diferentes bases numéricas, y también puedes usar libremente el software que desarrollamos
-          para ello.
-        </p>        
-        <p>
-          <a class="btn btn-lg btn-success" href="" role="button">Ver/Descargar pdf &raquo;</a>
-        </p>
-      </section>
-    
+      <form class="form-horizontal" method="POST" action="controllers/conversorBases.php" role="form">
+        <legend class="bg-primary text-center">Ingrese un número en cualquier base</legend>
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="decimal">DECIMAL</label>
+          <div class="col-sm-5">
+            <input name="decimal" type="text" class="form-control" id="decimal" maxlength="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="binary" class="col-sm-4 control-label">BINARIO</label>
+          <div class="col-sm-5">
+            <input name="binary" type="text" class="form-control" id="binary" maxlength="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="octal" class="col-sm-4 control-label">OCTAL</label>
+          <div class="col-sm-5">
+            <input name="octal" type="text" class="form-control" id="octal" maxlength="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hexadecimal" class="col-sm-4 control-label">HEXADECIMAL</label>
+          <div class="col-sm-5">
+            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" maxlength="20">
+          </div>
+        </div>
+        <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-10">
+          <button type="reset" class="btn btn-danger">Borrar</button>
+          <button type="submit" class="btn btn-primary">Evaluar</button>
+        </div>
+      </div>
+      </form>
+
     </section> <!-- /container -->
 
     <footer>
