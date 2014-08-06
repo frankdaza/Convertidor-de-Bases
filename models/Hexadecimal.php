@@ -29,7 +29,7 @@ class Hexadecimal
 		$x = 0;
 		$y = 1;				
 		$frac = 0;
-		while ($i <= 10) {
+		while ($i <= 20) {
 			$i++;
 			$tmp = substr($fraccional, $x, 1);
 			$tmp2 = $tmp * pow(16, -$y);

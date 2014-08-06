@@ -28,7 +28,7 @@ class Decimal
 		$i = 0;
 		$tmp = $fraccional;
 		$frac = "";
-		while ($i <= 10) {
+		while ($i <= 20) {
 			$i++;
 			$tmp = 2 * $tmp;	
 			$array = explode(".", "".$tmp);			
@@ -74,7 +74,7 @@ class Decimal
 		$i = 0;
 		$tmp = $fraccional;
 		$frac = "";
-		while ($i <= 10) {
+		while ($i <= 20) {
 			$i++;
 			$tmp = 8 * $tmp;	
 			$array = explode(".", "".$tmp);			
@@ -120,7 +120,7 @@ class Decimal
 		$i = 0;
 		$tmp = $fraccional;
 		$frac = "";
-		while ($i <= 10) {
+		while ($i <= 20) {
 			$i++;
 			$tmp = 16 * $tmp;	
 			$array = explode(".", "".$tmp);

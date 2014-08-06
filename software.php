@@ -148,43 +148,15 @@ session_start();
         <div class="form-group">
           <label for="octal" class="col-sm-4 control-label">OCTAL</label>
           <div class="col-sm-5">
-            <input name="octal" type="text" class="form-control" id="octal" maxlength="20" value=
-            <?php 
-              if (isset($_SESSION["octal"])) {
-                echo $_SESSION["octal"];
-                unset($_SESSION["octal"]);
-              }
-            ?>
-            >
-            <p class="text-danger" id="errorOctal">
-              <?php 
-                if (isset($_SESSION["errorOctal"])) {
-                  echo "No es un número octal";
-                  unset($_SESSION["errorOctal"]);
-                }
-              ?>
-            </p>
+            <input name="octal" type="text" class="form-control" id="octal" maxlength="20">
+            <p class="text-danger" id="errorOctal"></p>
           </div>
         </div>
         <div class="form-group">
           <label for="hexadecimal" class="col-sm-4 control-label">HEXADECIMAL</label>
           <div class="col-sm-5">
-            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" maxlength="20"  onkeyup="validator_hexadecimal()" value=
-            <?php 
-              if (isset($_SESSION["hexadecimal"])) {
-                echo $_SESSION["hexadecimal"];
-                unset($_SESSION["hexadecimal"]);
-              }
-            ?>
-            >
-            <p class="text-danger" id="errorHexadecimal">
-              <?php 
-                if (isset($_SESSION["errorHexadecimal"])) {
-                  echo "No es un número hexadecimal";
-                  unset($_SESSION["errorHexadecimal"]);
-                }
-              ?>
-            </p>
+            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" maxlength="20"  onkeyup="validator_hexadecimal()" >
+            <p class="text-danger" id="errorHexadecimal"></p>
           </div>
         </div>
         <div class="form-group">
