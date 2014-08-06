@@ -9,7 +9,7 @@ require "../models/Octal.php";
 require "../models/Hexadecimal.php";
 
 // Obtengo los valores del formulario conversor de bases y elimino los espacios en blanco.
-$decimal = str_replace(" ", "", $_POST["decimal"]);
+$decimal = str_replace(" ", "", $_GET["decimal"]);
 $binary = str_replace(" ", "", $_POST["binary"]);
 $octal = str_replace(" ", "", $_POST["octal"]);
 $hexadecimal = strtoupper( str_replace(" ", "", $_POST["hexadecimal"]) );

@@ -155,20 +155,20 @@ class Decimal
 	*/
 	public function decimal_hexadecimal() {
 		if ( gettype($this->number) == 'integer' ) {
-			return dechex($this->number);
+			return strtoupper(dechex($this->number));
 		}
 		else {
 			// Divido el número en dos partes, la entera y la fraccionarioa
 			// y los ingreso en un array.
 			$array = explode(".", "".$this->number);
 			
-			// Convierto la parte entera en binario
-			$integer = dechex($array[0]);
+			// Convierto la parte entera en hexadecimal
+			$integer = strtoupper(dechex($array[0]));
 
 			// Parte fraccional
 			$fractional = $this->number - $array[0];			
 
-			// Parte fraccional convertida a octal
+			// Parte fraccional convertida a hexadecimal
 			$fractional = $this->fractional_hexadecimal($fractional);
 
 			return "$integer.".$fractional;
