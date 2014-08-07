@@ -20,6 +20,9 @@ if (strlen($binary) > 0) {
 		echo $octal;
 		
 	}
+	else {
+		echo "¡Número binario no válido!";
+	}
 }
 
 

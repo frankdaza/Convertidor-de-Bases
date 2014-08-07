@@ -20,6 +20,9 @@ if (strlen($binary) > 0) {
 		echo $hexadecimal;
 		
 	}
+	else {
+		echo "¡Número binario no válido!";
+	}
 }
 
 

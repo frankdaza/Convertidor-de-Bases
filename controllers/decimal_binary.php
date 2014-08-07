@@ -15,6 +15,9 @@ if (strlen($decimal) > 0) {
 		$bin = $number->decimal_binary();
 		echo $bin;
 	}
+	else {
+		echo "¡Número decimal no válido!";
+	}
 }
 
 

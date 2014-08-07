@@ -17,6 +17,9 @@ if (strlen($octal) > 0) {
 		echo $decimal;
 		
 	}
+	else {
+		echo "¡Número octal no válido!";
+	}
 }
 
 

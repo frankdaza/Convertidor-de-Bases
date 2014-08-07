@@ -14,6 +14,8 @@ if (strlen($decimal) > 0) {
 		
 		$octal = $number->decimal_octal();
 		echo $octal;
+	}else {
+		echo "¡Número decimal no válido!";
 	}
 }
 

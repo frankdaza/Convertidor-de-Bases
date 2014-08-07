@@ -17,6 +17,9 @@ if (strlen($hexadecimal) > 0) {
 		echo $decimal;
 		
 	}
+	else {
+		echo "¡Número hexadecimal no válido!";
+	}
 }
 
 

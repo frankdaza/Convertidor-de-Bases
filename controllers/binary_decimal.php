@@ -17,6 +17,9 @@ if (strlen($binary) > 0) {
 		echo $decimal;
 		
 	}
+	else {
+		echo "¡Número binario no válido!";
+	}
 }
 
 

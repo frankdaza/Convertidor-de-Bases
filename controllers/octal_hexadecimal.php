@@ -20,6 +20,9 @@ if (strlen($octal) > 0) {
 		echo $hexadecimal;
 		
 	}
+	else {
+		echo "¡Número octal no válido!";
+	}
 }
 
 

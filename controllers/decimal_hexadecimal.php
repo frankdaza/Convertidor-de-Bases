@@ -15,6 +15,9 @@ if (strlen($decimal) > 0) {
 		$hex = $number->decimal_hexadecimal();
 		echo $hex;
 	}
+	else {
+		echo "¡Número decimal no válido!";
+	}
 }
 
 
