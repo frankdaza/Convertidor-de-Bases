@@ -31,15 +31,20 @@ class Octal
 		$frac = 0;
 		while ($i <= 20) {
 			$i++;
-			$tmp = substr($fraccional, $x, 1);			
+			$tmp = substr($fraccional, $x, 1);	
 			$frac = $frac + $tmp * pow(8, -$y);				
 			$x++;
 			$y++;
 		}		
 		// Divido el número en dos partes, la entera y la fraccionaria
 		// y los ingreso en un array.
-		$array = explode(".", "".$frac);		
-		return $array[1];
+		$array = explode(".", "".$frac);
+		if (count($array) == 1) {
+			return 0;
+		}
+		elseif (count($array) == 2) {
+		 	return $array[1];
+		}
 	}
 
 	/**
@@ -47,16 +52,17 @@ class Octal
 	* @return float un número decimal.
 	*/
 	public function octal_decimal() {
-		if ( gettype($this->number) == 'integer' ) {
+		// Divido el número en dos partes, la entera y la fraccionaria
+		// y los ingreso en un array.
+		$array = explode(".", "".$this->number);
+
+		if (count($array) == 1) {
 			return octdec($this->number);
 		}
-		else {
-			// Divido el número en dos partes, la entera y la fraccionaria
-			// y los ingreso en un array.
-			$array = explode(".", "".$this->number);
+		elseif (count($array) == 2) {			
 			
-			// Convierto la parte entera en octal
-			$integer = octdec($array[0]);
+			// Convierto la parte entera en binario
+			$integer = octdec($array[0]);			
 
 			// Parte fraccional			
 			$fractional = $array[1];

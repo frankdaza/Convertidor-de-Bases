@@ -16,6 +16,7 @@ class Validator
 	* @param string $number
 	*/
 	function __construct($number) {
+
 		$this->number = $number;
 	}
 
@@ -36,7 +37,7 @@ class Validator
 		// y los ingreso en un array.
 		$array = explode(".", "".$this->number);
 
-		if (count($array) > 2) {			
+		if (count($array) > 2 || (strspn($this->number, ".") == 1 && count($array) == 1 )) {
 			return false;
 		}
 		else {		
@@ -139,5 +140,6 @@ class Validator
 	}
 
 }
+
 
 ?>

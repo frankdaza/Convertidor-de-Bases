@@ -21,74 +21,7 @@ session_start();
     <!-- Custom styles for this template -->
     <link href="css/navbar-fixed-top.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <script>
-      function validator_hexadecimal() {
-        var x = document.getElementById("hexadecimal");
-        x.value = x.value.toUpperCase();
-      }
-
-      function decimal2(str) {        
-        
-        var xmlhttp=new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function() {
-          if (xmlhttp.readyState==4 && xmlhttp.status==200) {            
-            document.getElementById("binary").value=xmlhttp.responseText;            
-          }
-        }        
-        xmlhttp.open("GET","controllers/decimal_binary.php?decimal="+str,true);        
-        xmlhttp.send();
-
-        var xmlhttp2=new XMLHttpRequest();
-        xmlhttp2.onreadystatechange=function() {
-          if (xmlhttp2.readyState==4 && xmlhttp2.status==200) {            
-            document.getElementById("octal").value=xmlhttp2.responseText;
-          }
-        }        
-        xmlhttp2.open("GET","controllers/decimal_octal.php?decimal="+str,true);        
-        xmlhttp2.send();
-
-        var xmlhttp3=new XMLHttpRequest();
-        xmlhttp3.onreadystatechange=function() {
-          if (xmlhttp3.readyState==4 && xmlhttp3.status==200) {            
-            document.getElementById("hexadecimal").value=xmlhttp3.responseText;
-          }
-        }        
-        xmlhttp3.open("GET","controllers/decimal_hexadecimal.php?decimal="+str,true);      
-        xmlhttp3.send();
-      }
-
-      function binary2(str) {        
-        
-        var xmlhttp=new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function() {
-          if (xmlhttp.readyState==4 && xmlhttp.status==200) {            
-            document.getElementById("decimal").value=xmlhttp.responseText;            
-          }
-        }        
-        xmlhttp.open("GET","controllers/binary_decimal.php?binary="+str,true);        
-        xmlhttp.send();
-
-        var xmlhttp2=new XMLHttpRequest();
-        xmlhttp2.onreadystatechange=function() {
-          if (xmlhttp2.readyState==4 && xmlhttp2.status==200) {            
-            document.getElementById("octal").value=xmlhttp2.responseText;
-          }
-        }        
-        xmlhttp2.open("GET","controllers/binary_octal.php?binary="+str,true);        
-        xmlhttp2.send();
-
-        var xmlhttp3=new XMLHttpRequest();
-        xmlhttp3.onreadystatechange=function() {
-          if (xmlhttp3.readyState==4 && xmlhttp3.status==200) {            
-            document.getElementById("hexadecimal").value=xmlhttp3.responseText;
-          }
-        }        
-        xmlhttp3.open("GET","controllers/binary_hexadecimal.php?binary="+str,true);        
-        xmlhttp3.send();
-      }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
    
   </head>
 
@@ -148,20 +81,20 @@ session_start();
         <div class="form-group">
           <label for="octal" class="col-sm-4 control-label">OCTAL</label>
           <div class="col-sm-5">
-            <input name="octal" type="text" class="form-control" id="octal" maxlength="20">
+            <input name="octal" type="text" class="form-control" id="octal" onkeyup="octal2(this.value)" maxlength="20">
             <p class="text-danger" id="errorOctal"></p>
           </div>
         </div>
         <div class="form-group">
           <label for="hexadecimal" class="col-sm-4 control-label">HEXADECIMAL</label>
           <div class="col-sm-5">
-            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" maxlength="20"  onkeyup="validator_hexadecimal()" >
+            <input name="hexadecimal" type="text" class="form-control" id="hexadecimal" onkeyup="hexadecimal2(this.value)" maxlength="20">
             <p class="text-danger" id="errorHexadecimal"></p>
           </div>
         </div>
         <div class="form-group">
         <div class="col-sm-offset-5 col-sm-10">
-          <a href="clear.php" class="btn btn-danger">Borrar</a>          
+          <a href="software.php" class="btn btn-danger">Borrar</a>          
         </div>
       </div>
       </form>        
@@ -174,16 +107,16 @@ session_start();
         Desarrollado para la materia de Métodos Numéricos de la Universidad de San Buenaventura Cali. <br>
         2014.
       </p>
-      <img src="img/logousb.png" class="img-responsive" alt="LOGO USBCALI">            
+     
     </footer>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->    
+    <script src="js/ajaxFunctions.js"></script>
     <script src="js/collapse.js"></script>
     <script src="js/transition.js"></script>
-    <script src="js/dropdown.js"></script>
-    <script src="js/validator.js"></script>
+    <script src="js/dropdown.js"></script>    
   </body>
 </html>

@@ -38,8 +38,13 @@ class Binary
 		}		
 		// Divido el número en dos partes, la entera y la fraccionaria
 		// y los ingreso en un array.
-		$array = explode(".", "".$frac);		
-		return $array[1];
+		$array = explode(".", "".$frac);
+		if (count($array) == 1) {
+			return 0;
+		}
+		elseif (count($array) == 2) {
+		 	return $array[1];
+		}
 	}
 
 	/**
@@ -47,16 +52,18 @@ class Binary
 	* @return float un número decimal.
 	*/
 	public function binary_decimal() {
-		if ( gettype($this->number) == 'integer' ) {
+
+		// Divido el número en dos partes, la entera y la fraccionaria
+		// y los ingreso en un array.
+		$array = explode(".", "".$this->number);
+
+		if (count($array) == 1) {
 			return bindec($this->number);
 		}
-		else {
-			// Divido el número en dos partes, la entera y la fraccionaria
-			// y los ingreso en un array.
-			$array = explode(".", "".$this->number);
+		elseif (count($array) == 2) {			
 			
 			// Convierto la parte entera en binario
-			$integer = bindec($array[0]);
+			$integer = bindec($array[0]);			
 
 			// Parte fraccional			
 			$fractional = $array[1];
@@ -65,9 +72,11 @@ class Binary
 			$fractional = $this->fractional_binary($fractional);
 
 			return "$integer.".$fractional;
-		}	
+		}
+
 	}
 
 }
+
 
 ?>

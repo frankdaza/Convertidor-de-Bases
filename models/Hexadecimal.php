@@ -57,8 +57,13 @@ class Hexadecimal
 		}		
 		// Divido el número en dos partes, la entera y la fraccionaria
 		// y los ingreso en un array.
-		$array = explode(".", "".$frac);		
-		return $array[1];
+		$array = explode(".", "".$frac);
+		if (count($array) == 1) {
+			return 0;
+		}
+		elseif (count($array) == 2) {
+		 	return $array[1];
+		}
 	}
 
 	/**
@@ -66,19 +71,20 @@ class Hexadecimal
 	* @return float un número decimal.
 	*/
 	public function hexadecimal_decimal() {
-		if ( gettype($this->number) == 'integer' ) {
+		// Divido el número en dos partes, la entera y la fraccionaria
+		// y los ingreso en un array.
+		$array = explode(".", "".$this->number);
+
+		if (count($array) == 1) {
 			return hexdec($this->number);
 		}
-		else {
-			// Divido el número en dos partes, la entera y la fraccionaria
-			// y los ingreso en un array.
-			$array = explode(".", "".$this->number);
+		elseif (count($array) == 2) {			
 			
-			// Convierto la parte entera en hexadecimal
-			$integer = hexdec($array[0]);
+			// Convierto la parte entera en binario
+			$integer = hexdec($array[0]);			
 
 			// Parte fraccional			
-			$fractional = $array[1];			
+			$fractional = $array[1];
 
 			// Parte fraccional convertida a hexadecimal
 			$fractional = $this->fractional_hexadecimal($fractional);
