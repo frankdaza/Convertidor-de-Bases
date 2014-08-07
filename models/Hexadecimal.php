@@ -28,11 +28,11 @@ class Hexadecimal
 		$i = 0;
 		$x = 0;
 		$y = 1;				
-		$frac = 0;
+		$frac = "";
 		while ($i <= 20) {
 			$i++;
-			$tmp = substr($fraccional, $x, 1);
-			$tmp2 = $tmp * pow(16, -$y);
+			$tmp = substr($fraccional, $x, 1);			
+			$tmp2 = hexdec($tmp) * pow(16, -$y);
 			if ($tmp2 == "10") {
 				$frac = $frac + "A";
 			}			
@@ -84,7 +84,7 @@ class Hexadecimal
 			$integer = hexdec($array[0]);			
 
 			// Parte fraccional			
-			$fractional = $array[1];
+			$fractional = $array[1];			
 
 			// Parte fraccional convertida a hexadecimal
 			$fractional = $this->fractional_hexadecimal($fractional);
@@ -94,5 +94,6 @@ class Hexadecimal
 	}
 	
 }
+
 
 ?>
